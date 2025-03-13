@@ -1,2 +1,4 @@
+from app.dashboard import init_dashboard
+
 def create_report_tab():
-    pass
+    init_dashboard()
