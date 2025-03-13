@@ -16,6 +16,11 @@ def init_dashboard():
         # Create age group first
         df = create_age_groups(df)
 
+        with ui.column().classes("w-full"):
+
+            # Add results section (will be updated)
+            global results_section
+            results_section = ui.column().classes("w-full")
 
   
 def create_age_groups(df):
