@@ -1,8 +1,8 @@
 from nicegui import ui
-from home_tab import create_home_tab
-from report_tab import create_report_tab
-from summary_tab import create_summary_tab
-from support_tab import create_support_tab
+from .home_tab import create_home_tab
+from .report_tab import create_report_tab
+from .summary_tab import create_summary_tab
+from .support_tab import create_support_tab
 
 
 def create_tabs():
