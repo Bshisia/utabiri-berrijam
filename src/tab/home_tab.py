@@ -17,3 +17,22 @@ def create_home_tab(tabs):
             ui.label("""Accurately triaging patients and reducing time to treatment can save lives. 
                     Early identification of high-risk patients enables faster intervention and better outcomes."""
             ).classes('text-lg')
+
+        # Key Findings Section
+        with ui.card().classes('w-full max-w-3xl bg-blue-50'):
+            ui.label("Key Findings").classes('text-xl font-bold mb-2')
+            ui.html("""
+                <div class="text-lg">
+                    <p>Berrijam AI's analysis of ICU data on heart failure patients revealed:</p>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li>Two critical mortality indicators identified:
+                            <ul class="list-circle pl-5">
+                                <li>Anion Gap</li>
+                                <li>Renal Failure</li>
+                            </ul>
+                        </li>
+                        <li>These factors can increase mortality risk by approximately 2x</li>
+                        <li>The combination of both factors presents the highest risk</li>
+                    </ul>
+                </div>
+            """)
