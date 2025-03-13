@@ -1,5 +1,22 @@
+import os
+from nicegui import ui
+import pandas as pd
+from preview import show_data_preview
+
+
 DATA_PATH = "data/heart.csv"
+
 def load_data():
+    """
+    Load data from a CSV file.
+
+    This function checks if the data file exists at the specified path.
+    If the file exists, it reads the data into a pandas DataFrame and returns it.
+    If the file does not exist or an error occurs during loading, it notifies the user and returns None.
+
+    Returns:
+        pd.DataFrame: The loaded data as a pandas DataFrame, or None if an error occurs.
+    """
     try:
         if not os.path.exists(DATA_PATH):
             ui.notify(f"Error: Data file not found at {DATA_PATH}", type="negative")
@@ -9,26 +26,19 @@ def load_data():
         ui.notify(f"Error loading data: {ex}", type="negative")
         return None
 
-
-def init_dashboard():
-    # Load the data
-    df = load_data()
-    if df is not None:
-        # Create age group first
-        df = create_age_groups(df)
-
-        with ui.column().classes("w-full"):
-
-            # Add results section (will be updated)
-            global results_section
-            results_section = ui.column().classes("w-full")
-            
-            with results_section:
-                # Show initial data preview with first 5 rows
-                show_data_preview(df)
-
-  
 def create_age_groups(df):
+    """
+    Create age groups in the data.
+
+    This function creates age groups based on predefined bins and labels,
+    and adds a new column "Age Group" to the DataFrame.
+
+    Args:
+        df (pd.DataFrame): The input data as a pandas DataFrame.
+
+    Returns:
+        pd.DataFrame: The DataFrame with the new "Age Group" column.
+    """
     try:
         df_copy = df.copy()
         bins = [0, 40, 60, 80, 100]
@@ -39,33 +49,4 @@ def create_age_groups(df):
         return df_copy
     except Exception as ex:
         ui.notify(f"Error creating age groups: {ex}", type="negative")
-        return df     
-    
-
-def show_data_preview(df):
-    """Show data preview table with pagination"""
-    with ui.card().tight().classes("w-full mx-auto my-4"):
-        ui.label("Data Preview").classes("text-xl font-bold p-4")
-
-        # Convert the first 5 rows to a list of dictionaries
-        preview_data = df.head().to_dict("records")
-        
-        # Add row numbers
-        for i, row in enumerate(preview_data):
-            row["#"] = i + 1
-        
-        # Define columns including row number
-        columns = [
-            {"name": "#", "label": "#", "field": "#"},
-            *[
-                {"name": str(col), "label": str(col), "field": str(col)}
-                for col in df.columns
-            ],
-        ]
-        
-        # Create table with the preview data
-        ui.table(columns=columns, rows=preview_data, row_key="#").classes("w-full")
-        
-         # Add record count
-        ui.label(f"Showing 5 of {len(df)} records").classes("text-sm text-gray-600 p-4")
-
+        return df
