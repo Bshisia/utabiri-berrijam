@@ -57,3 +57,7 @@ def show_data_preview(df):
                 for col in df.columns
             ],
         ]
+        
+        # Create table with the preview data
+        ui.table(columns=columns, rows=preview_data, row_key="#").classes("w-full")
+
