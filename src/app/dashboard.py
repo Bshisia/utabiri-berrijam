@@ -1,4 +1,4 @@
-import ui
+from nicegui import ui
 from data.loader import load_data, create_age_groups
 from data.preview import show_data_preview
 
