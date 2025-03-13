@@ -7,3 +7,8 @@ def load_data():
     except Exception as ex:
         ui.notify(f"Error loading data: {ex}", type="negative")
         return None
+
+
+def init_dashboard():
+    # Load the data
+    df = load_data()
