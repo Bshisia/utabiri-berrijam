@@ -1,11 +1,6 @@
 from nicegui import ui
+from tab.create_tab import create_tabs
 
-def greet():
-    name = name_input.value
-    ui.notify(f'Hello, {name}!')
-
-ui.label('Enter your name:')
-name_input = ui.input(placeholder='Your name...')
-ui.button('Greet Me', on_click=greet)
-
-ui.run()
+if __name__ in {"__main__", "__mp_main__"}:
+    create_tabs()
+    ui.run(title="Heart Attack Mortality Dashboard")
