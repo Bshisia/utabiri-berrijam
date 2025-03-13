@@ -21,6 +21,10 @@ def init_dashboard():
             # Add results section (will be updated)
             global results_section
             results_section = ui.column().classes("w-full")
+            
+            with results_section:
+                # Show initial data preview with first 5 rows
+                show_data_preview(df)
 
   
 def create_age_groups(df):
