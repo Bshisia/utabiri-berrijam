@@ -1,10 +1,8 @@
 import os
 from nicegui import ui
 import pandas as pd
-from preview import show_data_preview
 
-
-DATA_PATH = "data/heart.csv"
+DATA_PATH = "../data/heart.csv"
 
 def load_data():
     """
