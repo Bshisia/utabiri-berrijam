@@ -42,3 +42,22 @@ def create_home_tab(tabs):
             with ui.row().classes('gap-2 flex-wrap'):
                 for industry in ['ICU', 'Blood-works', 'Medical', 'Research']:
                     ui.badge(industry).props('outline').classes('text-lg')
+
+        # Quick Navigation Section
+        with ui.card().classes('w-full max-w-3xl'):
+            ui.label("Quick Navigation").classes('text-xl font-bold mb-2')
+            with ui.row().classes('gap-4 justify-center'):
+                ui.button('View Full Report', 
+                         icon='analytics',
+                         on_click=lambda: tabs.set_value('Report')
+                         ).props('color=primary')
+                
+                ui.button('View Summary', 
+                         icon='summarize',
+                         on_click=lambda: tabs.set_value('Summary')
+                         ).props('color=secondary')
+                
+                ui.button('Get Support', 
+                         icon='help',
+                         on_click=lambda: tabs.set_value('Support')
+                         ).props('outline')
