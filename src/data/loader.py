@@ -1,3 +1,4 @@
+DATA_PATH = "data/heart.csv"
 def load_data():
     try:
         if not os.path.exists(DATA_PATH):
