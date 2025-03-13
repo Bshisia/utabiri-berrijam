@@ -44,3 +44,7 @@ def show_data_preview(df):
 
         # Convert the first 5 rows to a list of dictionaries
         preview_data = df.head().to_dict("records")
+        
+        # Add row numbers
+        for i, row in enumerate(preview_data):
+            row["#"] = i + 1
