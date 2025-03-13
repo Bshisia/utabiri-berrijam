@@ -1,4 +1,4 @@
-import ui
+from nicegui import ui
 
 
 def show_data_preview(df):

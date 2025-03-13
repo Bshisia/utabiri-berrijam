@@ -1,5 +1,5 @@
 import os
-import ui
+from nicegui import ui
 import pandas as pd
 from preview import show_data_preview
 
