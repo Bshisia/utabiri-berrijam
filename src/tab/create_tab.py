@@ -1,4 +1,9 @@
 from nicegui import ui
+from home_tab import create_home_tab
+from report_tab import create_report_tab
+from summary_tab import create_summary_tab
+from support_tab import create_support_tab
+
 
 def create_tabs():
     # Create tabs
@@ -7,3 +12,17 @@ def create_tabs():
         report_tab = ui.tab('Report', icon='analytics')
         summary_tab = ui.tab('Summary', icon='summarize')
         support_tab = ui.tab('Support', icon='help')
+
+    # Create tab panels
+    with ui.tab_panels(tabs, value='Home').classes('w-full'): 
+        with ui.tab_panel('Home'):
+            create_home_tab(tabs) 
+        
+        with ui.tab_panel('Report'):
+            create_report_tab()
+            
+        with ui.tab_panel('Summary'):
+            create_summary_tab()
+            
+        with ui.tab_panel('Support'):
+            create_support_tab()
