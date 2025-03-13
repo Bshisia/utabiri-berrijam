@@ -60,4 +60,7 @@ def show_data_preview(df):
         
         # Create table with the preview data
         ui.table(columns=columns, rows=preview_data, row_key="#").classes("w-full")
+        
+         # Add record count
+        ui.label(f"Showing 5 of {len(df)} records").classes("text-sm text-gray-600 p-4")
 
