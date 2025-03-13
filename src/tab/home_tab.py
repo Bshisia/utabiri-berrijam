@@ -1,6 +1,11 @@
 from nicegui import ui
 
-def create_home_tab(tabs):
+def create_home_tab(tabs) -> None:
+    """Creates the home dashboard interface with key sections and navigation.
+    
+    Args:
+        tabs: Tab container object enabling navigation between sections
+    """
     with ui.column().classes('w-full items-center gap-4 p-4'):
 
         # Header Section
