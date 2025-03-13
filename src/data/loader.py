@@ -48,3 +48,12 @@ def show_data_preview(df):
         # Add row numbers
         for i, row in enumerate(preview_data):
             row["#"] = i + 1
+        
+        # Define columns including row number
+        columns = [
+            {"name": "#", "label": "#", "field": "#"},
+            *[
+                {"name": str(col), "label": str(col), "field": str(col)}
+                for col in df.columns
+            ],
+        ]
