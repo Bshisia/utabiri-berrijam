@@ -36,3 +36,9 @@ def create_home_tab(tabs):
                     </ul>
                 </div>
             """)
+        # Industry Section
+        with ui.card().classes('w-full max-w-3xl'):
+            ui.label("Industry Application").classes('text-xl font-bold mb-2')
+            with ui.row().classes('gap-2 flex-wrap'):
+                for industry in ['ICU', 'Blood-works', 'Medical', 'Research']:
+                    ui.badge(industry).props('outline').classes('text-lg')
